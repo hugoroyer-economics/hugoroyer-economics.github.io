@@ -6,7 +6,7 @@ layout: default
 <div class="hero-texte">
 <p class="surtitre">{{ p.statut }}</p>
 <h1>{{ p.nom }}</h1>
-<p class="accroche">{% assign surligne_html = '<span class="surligne">' | append: p.surligne | append: '</span>' %}{{ p.accroche | replace: p.surligne, surligne_html }}{% if p.accroche_fin != blank %} <em>{{ p.accroche_fin }}</em>{% endif %}</p>
+<p class="accroche">{% assign surligne_html = '<span class="surligne">' | append: p.surligne | append: '</span>' %}{{ p.accroche | replace: p.surligne, surligne_html }}{% if p.accroche_fin and p.accroche_fin != "" %} <em>{{ p.accroche_fin }}</em>{% endif %}</p>
 <p class="bio">{{ p.bio }}</p>
 <div class="boutons">
 <a class="bouton jaune" href="{{ '/cv.html' | relative_url }}">Voir mon CV</a>
@@ -44,7 +44,7 @@ layout: default
 <article class="carte accent">
 <p class="discret" style="font-size: 14px">{{ r.etiquette }} · {{ r.periode }}</p>
 <h3 style="font-size: 20px; font-weight: 600; line-height: 1.35">{{ r.titre }}</h3>
-{% if r.resume_court != blank %}<p class="texte">{{ r.resume_court }}</p>{% endif %}
+{% if r.resume_court and r.resume_court != "" %}<p class="texte">{{ r.resume_court }}</p>{% endif %}
 <p class="discret" style="font-size: 15px">{{ r.encadrement | slice: 0 | upcase }}{{ r.encadrement | slice: 1, 500 }}</p>
 <a href="{{ '/recherche.html' | relative_url }}" style="font-weight: 500">En savoir plus</a>
 </article>

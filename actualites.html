@@ -19,12 +19,12 @@ description: "Actualités de Hugo Royer."
 {%- assign actus = site.data.actualites | sort: "date" | reverse -%}
 {%- for a in actus %}
 <article class="article" data-categorie="{{ a.categorie }}">
-{%- if a.image != blank %}<img class="visuel" src="{{ a.image | relative_url }}" alt="">{% endif %}
+{%- if a.image and a.image != "" %}<img class="visuel" src="{{ a.image | relative_url }}" alt="">{% endif %}
 <div>
 <p class="discret" style="font-size: 14px"><span class="etiquette">{{ a.categorie }}</span> · {% include date_fr.html date=a.date %}</p>
 <h2>{{ a.titre }}</h2>
 <p class="texte">{{ a.texte }}</p>
-{%- if a.lien != blank %}<a href="{{ a.lien }}" target="_blank" rel="noopener" style="font-weight: 500">{{ a.lien_texte | default: "En savoir plus" }}</a>{% endif %}
+{%- if a.lien and a.lien != "" %}<a href="{{ a.lien }}" target="_blank" rel="noopener" style="font-weight: 500">{{ a.lien_texte | default: "En savoir plus" }}</a>{% endif %}
 </div>
 </article>
 {%- endfor %}

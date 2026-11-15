@@ -7,7 +7,7 @@ description: "CV de Hugo Royer : formation, expériences, langues."
 <p class="surtitre">Parcours</p>
 <h1 class="titre-page">CV</h1>
 <p class="intro">Formation et expériences, de la plus récente à la plus ancienne.</p>
-{%- if site.data.profil.cv_pdf != blank %}
+{%- if site.data.profil.cv_pdf and site.data.profil.cv_pdf != "" %}
 <div class="boutons" style="margin-top: 32px"><a class="bouton jaune" href="{{ site.data.profil.cv_pdf | relative_url }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>Télécharger le CV (PDF)</a></div>
 {%- endif %}
 </section>
@@ -26,7 +26,7 @@ description: "CV de Hugo Royer : formation, expériences, langues."
 <h2 class="h2">Expériences</h2>
 <div class="frise">
 {%- for e in site.data.experiences %}
-<div class="ligne"><p class="periode">{{ e.periode }}</p><div><p class="quoi">{{ e.poste }}</p><p class="texte">{{ e.structure }}</p>{% if e.mission != blank %}<p class="texte" style="margin-top: 4px">{{ e.mission }}</p>{% endif %}</div></div>
+<div class="ligne"><p class="periode">{{ e.periode }}</p><div><p class="quoi">{{ e.poste }}</p><p class="texte">{{ e.structure }}</p>{% if e.mission and e.mission != "" %}<p class="texte" style="margin-top: 4px">{{ e.mission }}</p>{% endif %}</div></div>
 {%- endfor %}
 </div>
 </div>
@@ -44,7 +44,7 @@ description: "CV de Hugo Royer : formation, expériences, langues."
 <h2 class="h2">Langues</h2>
 <ul class="langues">
 {%- for l in site.data.langues %}
-<li><span style="font-weight: 600">{{ l.langue }}</span>{% if l.niveau != blank %}<span class="etiquette{% unless l.en_avant %} neutre{% endunless %}">{{ l.niveau }}</span>{% endif %}{% if l.detail != blank %}<span class="texte">{{ l.detail }}</span>{% endif %}</li>
+<li><span style="font-weight: 600">{{ l.langue }}</span>{% if l.niveau and l.niveau != "" %}<span class="etiquette{% unless l.en_avant %} neutre{% endunless %}">{{ l.niveau }}</span>{% endif %}{% if l.detail and l.detail != "" %}<span class="texte">{{ l.detail }}</span>{% endif %}</li>
 {%- endfor %}
 </ul>
 </div>

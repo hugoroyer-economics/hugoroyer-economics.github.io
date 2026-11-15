@@ -36,19 +36,20 @@ description: "Travaux de recherche de Hugo Royer en économie de l'eau."
 {%- if nb > 0 %}
 <div class="frise">
 {%- for pub in site.data.publications %}
-<div class="ligne"><p class="periode">{{ pub.annee }}</p><div><p class="quoi">{% if pub.lien != blank %}<a href="{{ pub.lien }}">{{ pub.titre }}</a>{% else %}{{ pub.titre }}{% endif %}</p><p class="texte">{{ pub.type }}{% if pub.auteurs != blank %} · {{ pub.auteurs }}{% endif %}</p></div></div>
+<div class="ligne"><p class="periode">{{ pub.annee }}</p><div><p class="quoi">{% if pub.lien and pub.lien != "" %}<a href="{{ pub.lien }}">{{ pub.titre }}</a>{% else %}{{ pub.titre }}{% endif %}</p><p class="texte">{{ pub.type }}{% if pub.auteurs and pub.auteurs != "" %} · {{ pub.auteurs }}{% endif %}</p></div></div>
 {%- endfor %}
 </div>
 {%- else %}
 <p class="texte">Cette section accueillera mes working papers, posters et présentations en séminaire.</p>
 {%- endif %}
 </div>
-{%- if site.data.profil.google_scholar != blank or site.data.profil.orcid != blank %}
+{%- assign profils = site.data.profil.google_scholar | append: site.data.profil.orcid -%}
+{%- if profils != "" %}
 <div>
 <h2 class="h2">Profils</h2>
 <div class="boutons" style="flex-direction: column; align-items: flex-start">
-{%- if site.data.profil.google_scholar != blank %}<a class="bouton" href="{{ site.data.profil.google_scholar }}" target="_blank" rel="noopener">Google Scholar</a>{% endif %}
-{%- if site.data.profil.orcid != blank %}<a class="bouton" href="{{ site.data.profil.orcid }}" target="_blank" rel="noopener">ORCID</a>{% endif %}
+{%- if site.data.profil.google_scholar and site.data.profil.google_scholar != "" %}<a class="bouton" href="{{ site.data.profil.google_scholar }}" target="_blank" rel="noopener">Google Scholar</a>{% endif %}
+{%- if site.data.profil.orcid and site.data.profil.orcid != "" %}<a class="bouton" href="{{ site.data.profil.orcid }}" target="_blank" rel="noopener">ORCID</a>{% endif %}
 </div>
 </div>
 {%- endif %}

@@ -28,9 +28,9 @@
 <div class="conteneur">
 <span>{{ site.data.profil.email }}</span>
 <div class="liens">
-{%- if site.data.profil.linkedin != blank %}<a href="{{ site.data.profil.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>{% endif %}
-{%- if site.data.profil.google_scholar != blank %}<a href="{{ site.data.profil.google_scholar }}" target="_blank" rel="noopener">Google Scholar</a>{% endif %}
-{%- if site.data.profil.orcid != blank %}<a href="{{ site.data.profil.orcid }}" target="_blank" rel="noopener">ORCID</a>{% endif %}
+{%- if site.data.profil.linkedin and site.data.profil.linkedin != "" %}<a href="{{ site.data.profil.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>{% endif %}
+{%- if site.data.profil.google_scholar and site.data.profil.google_scholar != "" %}<a href="{{ site.data.profil.google_scholar }}" target="_blank" rel="noopener">Google Scholar</a>{% endif %}
+{%- if site.data.profil.orcid and site.data.profil.orcid != "" %}<a href="{{ site.data.profil.orcid }}" target="_blank" rel="noopener">ORCID</a>{% endif %}
 </div>
 </div>
 </footer>
