@@ -1,0 +1,156 @@
+media:
+  input: media
+  output: /media
+
+content:
+  - name: profil
+    label: Profil et accueil
+    type: file
+    path: _data/profil.yml
+    format: yaml
+    fields:
+      - { name: nom, label: Nom, type: string }
+      - { name: statut, label: "Statut (au-dessus du nom)", type: string }
+      - { name: accroche, label: Phrase de présentation, type: string }
+      - { name: surligne, label: Mot surligné en jaune dans la phrase, type: string }
+      - { name: accroche_fin, label: Fin de phrase en italique, type: string }
+      - { name: bio, label: Bio, type: text }
+      - { name: photo, label: Photo, type: image }
+      - name: themes
+        label: Thèmes de recherche
+        type: object
+        list: true
+        fields:
+          - { name: nom, label: Thème, type: string }
+          - { name: en_avant, label: Mettre en avant (jaune), type: boolean }
+      - { name: email, label: E-mail, type: string }
+      - { name: linkedin, label: Lien LinkedIn, type: string }
+      - { name: google_scholar, label: Lien Google Scholar, type: string }
+      - { name: orcid, label: Lien ORCID, type: string }
+      - name: cv_pdf
+        label: CV en PDF
+        type: file
+        options: { categories: [document] }
+      - { name: affiliation, label: Affiliation, type: string }
+      - { name: adresse, label: Adresse postale, type: text }
+
+  - name: actualites
+    label: Actualités
+    type: file
+    path: _data/actualites.yml
+    format: yaml
+    list: true
+    fields:
+      - { name: date, label: Date, type: date }
+      - name: categorie
+        label: Catégorie
+        type: select
+        options: { values: [Parcours, Recherche, Créations] }
+      - { name: titre, label: Titre, type: string }
+      - { name: texte, label: Texte, type: text }
+      - { name: image, label: Image (facultatif), type: image }
+      - { name: lien, label: Lien (facultatif), type: string }
+      - { name: lien_texte, label: Texte du lien, type: string }
+
+  - name: recherche
+    label: Recherche — travaux
+    type: file
+    path: _data/recherche.yml
+    format: yaml
+    list: true
+    fields:
+      - { name: etiquette, label: "Type (ex. Mémoire, Working paper)", type: string }
+      - { name: titre, label: Titre, type: string }
+      - { name: periode, label: Période, type: string }
+      - { name: encadrement, label: Encadrement ou lieu, type: string }
+      - { name: resume, label: Résumé, type: text }
+      - { name: resume_court, label: Résumé court (accueil), type: string }
+      - { name: a_la_une, label: Afficher sur l'accueil, type: boolean }
+
+  - name: publications
+    label: Recherche — publications et communications
+    type: file
+    path: _data/publications.yml
+    format: yaml
+    list: true
+    fields:
+      - { name: annee, label: Année, type: string }
+      - { name: titre, label: Titre, type: string }
+      - { name: type, label: "Type (article, poster, séminaire…)", type: string }
+      - { name: auteurs, label: Co-auteurs, type: string }
+      - { name: lien, label: Lien, type: string }
+
+  - name: cv
+    label: CV
+    type: group
+    items:
+      - name: formation
+        label: Formation
+        type: file
+        path: _data/formation.yml
+        format: yaml
+        list: true
+        fields:
+          - { name: periode, label: Période, type: string }
+          - { name: diplome, label: Diplôme, type: string }
+          - { name: etablissement, label: Établissement, type: string }
+          - { name: en_cours, label: En cours, type: boolean }
+      - name: experiences
+        label: Expériences
+        type: file
+        path: _data/experiences.yml
+        format: yaml
+        list: true
+        fields:
+          - { name: periode, label: Période, type: string }
+          - { name: poste, label: Poste, type: string }
+          - { name: structure, label: Structure, type: string }
+          - { name: mission, label: Mission, type: text }
+      - name: langues
+        label: Langues
+        type: file
+        path: _data/langues.yml
+        format: yaml
+        list: true
+        fields:
+          - { name: langue, label: Langue, type: string }
+          - { name: niveau, label: "Niveau (C1, B1…)", type: string }
+          - { name: detail, label: Précision, type: string }
+          - { name: en_avant, label: Niveau en jaune, type: boolean }
+      - name: competences
+        label: Compétences
+        type: file
+        path: _data/competences.yml
+        format: yaml
+        list: true
+        fields:
+          - { name: competence, label: Compétence, type: string }
+      - name: reperes
+        label: Repères (accueil)
+        type: file
+        path: _data/reperes.yml
+        format: yaml
+        list: true
+        fields:
+          - { name: periode, label: Période, type: string }
+          - { name: titre, label: Titre, type: string }
+          - { name: lieu, label: Lieu, type: string }
+          - { name: en_cours, label: En cours, type: boolean }
+
+  - name: musique
+    label: Musique
+    type: file
+    path: _data/musique.yml
+    format: yaml
+    fields:
+      - { name: nom_artiste, label: Nom d'artiste, type: string }
+      - { name: intro, label: Présentation, type: text }
+      - { name: profil_soundcloud, label: Lien du profil SoundCloud, type: string }
+      - name: morceaux
+        label: Morceaux
+        type: object
+        list: true
+        fields:
+          - { name: titre, label: Titre, type: string }
+          - { name: lien, label: Lien SoundCloud du morceau, type: string }
+          - { name: accueil, label: Afficher sur l'accueil, type: boolean }

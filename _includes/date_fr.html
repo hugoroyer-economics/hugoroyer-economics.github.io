@@ -1,0 +1,4 @@
+{%- assign mois_fr = "janvier,février,mars,avril,mai,juin,juillet,août,septembre,octobre,novembre,décembre" | split: "," -%}
+{%- assign jour = include.date | date: "%-d" -%}
+{%- assign index_mois = include.date | date: "%-m" | minus: 1 -%}
+{%- if jour == "1" -%}1er{%- else -%}{{ jour }}{%- endif %} {{ mois_fr[index_mois] }} {{ include.date | date: "%Y" }}

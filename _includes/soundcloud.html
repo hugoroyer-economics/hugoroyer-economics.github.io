@@ -1,0 +1,4 @@
+<div class="lecteur">
+<iframe title="{{ include.titre }} — {{ site.data.musique.nom_artiste }} sur SoundCloud" height="166" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" loading="lazy" src="https://w.soundcloud.com/player/?url={{ include.lien | url_encode }}&amp;color=%231f1b18&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true"></iframe>
+<p><a href="{{ site.data.musique.profil_soundcloud }}" target="_blank" rel="noopener">{{ site.data.musique.nom_artiste }}</a> · <a href="{{ include.lien }}" target="_blank" rel="noopener">{{ include.titre }}</a></p>
+</div>

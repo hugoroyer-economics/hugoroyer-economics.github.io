@@ -1,0 +1,21 @@
+---
+layout: default
+titre: Contact
+description: "Contacter Hugo Royer."
+---
+{%- assign p = site.data.profil -%}
+<section class="conteneur" style="padding-top: 64px; padding-bottom: 40px">
+<p class="surtitre">Me joindre</p>
+<h1 class="titre-page">Contact</h1>
+<p class="intro">Pour une question de recherche, une collaboration ou un projet artistique, écrivez-moi.</p>
+</section>
+<section class="conteneur contacts" style="padding-top: 16px; padding-bottom: 72px">
+<div class="carte accent"><p class="label">E-mail</p><a href="mailto:{{ p.email }}" style="font-weight: 600; word-break: break-all">{{ p.email }}</a></div>
+<div class="carte"><p class="label">Réseaux</p>
+{%- if p.linkedin != blank %}<a href="{{ p.linkedin }}" target="_blank" rel="noopener" style="font-weight: 600">LinkedIn</a>{% endif %}
+{%- if p.google_scholar != blank %}<a href="{{ p.google_scholar }}" target="_blank" rel="noopener" style="font-weight: 600">Google Scholar</a>{% endif %}
+{%- if p.orcid != blank %}<a href="{{ p.orcid }}" target="_blank" rel="noopener" style="font-weight: 600">ORCID</a>{% endif %}
+{%- if site.data.musique.profil_soundcloud != blank %}<a href="{{ site.data.musique.profil_soundcloud }}" target="_blank" rel="noopener" style="font-weight: 600">SoundCloud ({{ site.data.musique.nom_artiste }})</a>{% endif %}
+</div>
+<div class="carte"><p class="label">Affiliation</p><p style="font-weight: 600">{{ p.affiliation }}</p>{% if p.adresse != blank %}<p class="texte">{{ p.adresse }}</p>{% endif %}</div>
+</section>

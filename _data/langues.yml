@@ -1,0 +1,12 @@
+- langue: Anglais
+  niveau: C1
+  detail: TOEIC 975/990
+  en_avant: true
+- langue: Espagnol
+  niveau: B1
+  detail: ""
+  en_avant: false
+- langue: Français
+  niveau: ""
+  detail: langue maternelle
+  en_avant: false

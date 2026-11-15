@@ -1,0 +1,83 @@
+---
+layout: default
+---
+{%- assign p = site.data.profil -%}
+<section class="conteneur hero">
+<div class="hero-texte">
+<p class="surtitre">{{ p.statut }}</p>
+<h1>{{ p.nom }}</h1>
+<p class="accroche">{% assign surligne_html = '<span class="surligne">' | append: p.surligne | append: '</span>' %}{{ p.accroche | replace: p.surligne, surligne_html }}{% if p.accroche_fin != blank %} <em>{{ p.accroche_fin }}</em>{% endif %}</p>
+<p class="bio">{{ p.bio }}</p>
+<div class="boutons">
+<a class="bouton jaune" href="{{ '/cv.html' | relative_url }}">Voir mon CV</a>
+<a class="bouton" href="{{ '/contact.html' | relative_url }}">Me contacter</a>
+</div>
+</div>
+<div class="hero-photo"><img src="{{ p.photo | relative_url }}" alt="Portrait de {{ p.nom }}"></div>
+</section>
+
+<section class="conteneur" style="padding-bottom: 64px">
+<div class="pastilles">
+{%- for t in p.themes %}
+<span class="pastille{% if t.en_avant %} forte{% endif %}">{{ t.nom }}</span>
+{%- endfor %}
+</div>
+</section>
+
+<section class="bande">
+<div class="conteneur section colonnes">
+<div>
+<h2 class="h2">À la une</h2>
+{%- assign actus = site.data.actualites | sort: "date" | reverse -%}
+{%- for a in actus limit: 2 %}
+<article class="actu">
+<p class="discret" style="font-size: 14px"><span class="etiquette">{{ a.categorie }}</span> · {% include date_fr.html date=a.date %}</p>
+<h3>{{ a.titre }}</h3>
+<p class="texte">{{ a.texte | truncatewords: 40 }}</p>
+</article>
+{%- endfor %}
+<a href="{{ '/actualites.html' | relative_url }}" style="display: inline-block; margin-top: 16px; font-weight: 500">Toutes les actualités</a>
+</div>
+<div>
+<h2 class="h2">Recherche en cours</h2>
+{%- for r in site.data.recherche %}{% if r.a_la_une %}
+<article class="carte accent">
+<p class="discret" style="font-size: 14px">{{ r.etiquette }} · {{ r.periode }}</p>
+<h3 style="font-size: 20px; font-weight: 600; line-height: 1.35">{{ r.titre }}</h3>
+{% if r.resume_court != blank %}<p class="texte">{{ r.resume_court }}</p>{% endif %}
+<p class="discret" style="font-size: 15px">{{ r.encadrement | slice: 0 | upcase }}{{ r.encadrement | slice: 1, 500 }}</p>
+<a href="{{ '/recherche.html' | relative_url }}" style="font-weight: 500">En savoir plus</a>
+</article>
+{%- endif %}{% endfor %}
+</div>
+</div>
+</section>
+
+<section class="conteneur section">
+<h2 class="h2">Repères</h2>
+<div class="reperes">
+{%- for r in site.data.reperes %}
+<div class="repere{% if r.en_cours %} en-cours{% endif %}"><p class="discret" style="font-size: 14px; margin-bottom: 4px">{{ r.periode }}</p><p style="font-weight: 600">{{ r.titre }}</p><p class="texte">{{ r.lieu }}</p></div>
+{%- endfor %}
+</div>
+</section>
+
+<section class="sombre">
+<div class="conteneur section">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 32px">
+<h2 style="font-family: var(--serif); font-weight: 400; font-size: 32px">À côté de la recherche</h2>
+<a class="lien-jaune" href="{{ '/creations.html' | relative_url }}">Écouter plus</a>
+</div>
+<div class="musique-accueil">
+<div>
+<p class="surtitre-jaune">Musique</p>
+<p class="grand">{{ site.data.musique.intro }}</p>
+</div>
+<div>
+{%- for m in site.data.musique.morceaux %}{% if m.accueil %}
+{% include soundcloud.html lien=m.lien titre=m.titre %}
+{%- endif %}{% endfor %}
+</div>
+</div>
+</div>
+</section>

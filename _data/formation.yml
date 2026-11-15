@@ -1,0 +1,12 @@
+- periode: 2026 – 2027
+  diplome: Master of Economics (M1), enseigné en anglais
+  etablissement: ENS Paris-Saclay
+  en_cours: true
+- periode: 2023 – 2026
+  diplome: Licence d'économie, Cursus Master en Ingénierie (CMI) économie du développement durable
+  etablissement: Université de Pau et des Pays de l'Adour
+  en_cours: false
+- periode: 2020 – 2023
+  diplome: Baccalauréat (mathématiques, sciences économiques et sociales), mention très bien
+  etablissement: Ensemble scolaire Immaculée Conception
+  en_cours: false

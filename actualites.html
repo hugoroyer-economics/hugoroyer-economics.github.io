@@ -1,0 +1,40 @@
+---
+layout: default
+titre: Actualités
+description: "Actualités de Hugo Royer."
+---
+<section class="conteneur" style="padding-top: 64px; padding-bottom: 24px">
+<p class="surtitre">Fil d'actualité</p>
+<h1 class="titre-page">Actualités</h1>
+<p class="intro">Les étapes de mon parcours, mes travaux et mes créations.</p>
+<div class="filtres" style="margin-top: 32px" role="group" aria-label="Filtrer par catégorie">
+<button class="filtre" type="button" data-filtre="" aria-pressed="true">Tout</button>
+<button class="filtre" type="button" data-filtre="Parcours" aria-pressed="false">Parcours</button>
+<button class="filtre" type="button" data-filtre="Recherche" aria-pressed="false">Recherche</button>
+<button class="filtre" type="button" data-filtre="Créations" aria-pressed="false">Créations</button>
+</div>
+</section>
+
+<section class="conteneur" style="padding-top: 24px; padding-bottom: 64px">
+{%- assign actus = site.data.actualites | sort: "date" | reverse -%}
+{%- for a in actus %}
+<article class="article" data-categorie="{{ a.categorie }}">
+{%- if a.image != blank %}<img class="visuel" src="{{ a.image | relative_url }}" alt="">{% endif %}
+<div>
+<p class="discret" style="font-size: 14px"><span class="etiquette">{{ a.categorie }}</span> · {% include date_fr.html date=a.date %}</p>
+<h2>{{ a.titre }}</h2>
+<p class="texte">{{ a.texte }}</p>
+{%- if a.lien != blank %}<a href="{{ a.lien }}" target="_blank" rel="noopener" style="font-weight: 500">{{ a.lien_texte | default: "En savoir plus" }}</a>{% endif %}
+</div>
+</article>
+{%- endfor %}
+</section>
+<script>
+document.querySelectorAll('.filtre').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var f = b.getAttribute('data-filtre');
+    document.querySelectorAll('.filtre').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+    document.querySelectorAll('.article').forEach(function (a) { a.hidden = f !== '' && a.getAttribute('data-categorie') !== f; });
+  });
+});
+</script>

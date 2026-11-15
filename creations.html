@@ -1,0 +1,19 @@
+---
+layout: default
+titre: Créations
+description: "Musique de Hugo Royer (Spleen17)."
+---
+{%- assign mu = site.data.musique -%}
+<section class="conteneur" style="padding-top: 64px; padding-bottom: 40px">
+<p class="surtitre">Musique</p>
+<h1 class="titre-page">Créations</h1>
+<p class="intro">{% assign nom_html = '<span class="surligne">' | append: mu.nom_artiste | append: '</span>' %}{{ mu.intro | replace: mu.nom_artiste, nom_html }}</p>
+</section>
+<section class="conteneur" style="padding-top: 16px; padding-bottom: 72px">
+<div class="grille" style="gap: 16px">
+{%- for m in mu.morceaux %}
+{% include soundcloud.html lien=m.lien titre=m.titre %}
+{%- endfor %}
+</div>
+<div class="boutons" style="margin-top: 32px"><a class="bouton" href="{{ mu.profil_soundcloud }}" target="_blank" rel="noopener">Tous les titres sur SoundCloud</a></div>
+</section>

@@ -1,0 +1,21 @@
+nom: Hugo Royer
+statut: Master of Economics · ENS Paris-Saclay
+accroche: "Économie de l'eau, du développement et de l'environnement"
+surligne: "l'eau"
+accroche_fin: "— et quelques films."
+bio: "Je suis étudiant en Master of Economics (M1) à l'ENS Paris-Saclay et je m'intéresse à la gestion de la ressource en eau. Formé à l'Université de Pau et des Pays de l'Adour, j'ai travaillé auprès de l'agence de l'eau Adour-Garonne et du laboratoire TREE. À côté de la recherche, je réalise des films, je fais de la musique et de la photographie."
+photo: /media/portrait.jpg
+themes:
+  - nom: Économie du développement
+    en_avant: false
+  - nom: Économie de l'eau
+    en_avant: true
+  - nom: Économie de l'environnement
+    en_avant: false
+email: hugo.royer@ens-paris-saclay.fr
+linkedin: https://www.linkedin.com/in/hugo-royer-124b7b291/
+google_scholar: ""
+orcid: ""
+cv_pdf: ""
+affiliation: ENS Paris-Saclay
+adresse: ""

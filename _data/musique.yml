@@ -1,0 +1,16 @@
+nom_artiste: Spleen17
+intro: "Je produis de la house et du garage sous le nom de Spleen17."
+profil_soundcloud: https://soundcloud.com/spleen-17-436373324
+morceaux:
+  - titre: Rigged Love (Hey Girl)
+    lien: https://soundcloud.com/spleen-17-436373324/rigged-love
+    accueil: true
+  - titre: Red Line
+    lien: https://soundcloud.com/spleen-17-436373324/red-line
+    accueil: false
+  - titre: Es-1
+    lien: https://soundcloud.com/spleen-17-436373324/es-1
+    accueil: true
+  - titre: God Damn
+    lien: https://soundcloud.com/spleen-17-436373324/god-damn
+    accueil: false

@@ -1,0 +1,6 @@
+title: Hugo Royer
+description: "Hugo Royer, étudiant en Master of Economics à l'ENS Paris-Saclay : économie de l'eau, du développement et de l'environnement."
+lang: fr
+url: ""
+baseurl: ""
+exclude: [README.md, .pages.yml]
